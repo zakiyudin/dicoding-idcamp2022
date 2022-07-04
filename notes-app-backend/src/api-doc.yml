@@ -1,0 +1,53 @@
+openapi: '3.0.2'
+info:
+  title: Catatan API
+  version: '1.0'
+servers:
+  - url: http://localhost:5000
+paths:
+  /notes/{id}:
+    get:
+      description: 'get catatan by id'
+      parameters:
+        - in: path
+          name: id
+          schema: 
+            type: string
+          description: id of catatan
+      responses:
+        '201':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  tags:
+                    type: string
+                  body:
+                    type: string
+  /notes:
+    get:
+      description: 'Get all catatan'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  tags:
+                    type: string
+                  body:
+                    type: string
+  /note:
+    post:
+      description: 'add catatan'
+      responses:
+        '200':
+          description: OK
